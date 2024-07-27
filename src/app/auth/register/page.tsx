@@ -7,12 +7,13 @@ export default function Login() {
 
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
+    const [name, setName] = useState("");
     const [isEye, setIsEye] = useState(true);
     const [disabled, setDisabled] = useState(true);
 
     useEffect(() => {
-        setDisabled(!(email.length > 0 && password.length > 0));
-    }, [email, password])
+        setDisabled(!(email.length > 0 && password.length > 0 && name.length > 0));
+    }, [email, password, name])
 
     const handlePassword = () => {
         setIsEye(!isEye);
@@ -22,11 +23,18 @@ export default function Login() {
     return (
         <>
             <main className="grid place-content-center min-h-screen bg-gradient-to-t from-purple-400">
-                <div className="flex flex-col p-10 bg-white rounded-lg ">
-                <header className="text-center text-slate-800 font-bold text-2xl">
-                    Welcome to <span className="text-purple-600">Workflo!</span>
-                </header>
-                    <form className="flex flex-col bg-white items-centre">
+                <div className="flex flex-col p-10 bg-white rounded-lg items-center">
+                    <header className="text-center text-slate-800 font-bold text-2xl">
+                        Welcome to <span className="text-purple-600">Workflo!</span>
+                    </header>
+                    <form className="flex flex-col bg-white">
+                    <input
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder="Your Name"
+                        className="bg-gray-200 m-3 outline-none text-gray-600 text-xs p-2 w-72 rounded-lg"
+                    />
                         <input
                             type="email"
                             value={email}
@@ -47,8 +55,8 @@ export default function Login() {
                             </div>
                         </div>
                     </form>
-                    <button className="w-72 bg-purple-800 m-3 text-xs rounded-lg p-2 text-white" style={{backgroundColor: disabled? "thistle" : "purple"}} disabled={disabled}>Login</button>
-                    <div className="text-xs m-3 text-center">Don't have an account? Create a <a className="text-purple-800" href="#">new account.</a></div>
+                    <button className="w-72 bg-purple-800 m-3 text-xs rounded-lg p-2 text-white" style={{backgroundColor: disabled? "thistle" : "purple"}} disabled={disabled}>Sign Up</button>
+                    <div className="text-xs m-3 text-center">Already have an account? <a className="text-purple-800" href="#">Log in.</a></div>
                 </div>
             </main>
         </>
