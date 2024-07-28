@@ -56,7 +56,7 @@ export default function Login() {
                         </div>
                     </form>
                     <button className="w-72 bg-purple-800 m-3 text-xs rounded-lg p-2 text-white" style={{backgroundColor: disabled? "thistle" : "purple"}} disabled={disabled}>Sign Up</button>
-                    <div className="text-xs m-3 text-center">Already have an account? <a className="text-purple-800" href="#">Log in.</a></div>
+                    <div className="text-xs m-3 text-center">Already have an account? <a className="text-purple-800" href="http://localhost:3000/auth/login">Log in.</a></div>
                 </div>
             </main>
         </>
